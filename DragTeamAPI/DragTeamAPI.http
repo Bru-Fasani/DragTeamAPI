@@ -1,0 +1,6 @@
+@DragTeamAPI_HostAddress = http://localhost:5258
+
+GET {{DragTeamAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
