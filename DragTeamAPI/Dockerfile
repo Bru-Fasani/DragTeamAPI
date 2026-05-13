@@ -12,8 +12,8 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["DragTeamAPI/DragTeamAPI.csproj", "DragTeamAPI/"]
-RUN dotnet restore "./DragTeamAPI/DragTeamAPI.csproj"
+COPY ["DragTeamAPI.csproj", "."]
+RUN dotnet restore "./DragTeamAPI.csproj"
 COPY . .
 WORKDIR "/src/DragTeamAPI"
 RUN dotnet build "./DragTeamAPI.csproj" -c $BUILD_CONFIGURATION -o /app/build
