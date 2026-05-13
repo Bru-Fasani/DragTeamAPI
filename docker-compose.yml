@@ -1,0 +1,30 @@
+services:
+  dragteamapi:
+    build:
+      context: .
+      dockerfile: DragTeamAPI/Dockerfile
+
+    ports:
+      - "8080:8080"
+
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=DragTeamDataBase;User Id=sa;Password=DragTeam@2026;TrustServerCertificate=True;"
+    depends_on:
+      - sqlserver
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "DragTeam@2026"
+
+    ports:
+      - "1433:1433"
+
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+
+volumes:
+  sqlserver_data:
