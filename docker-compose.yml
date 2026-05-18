@@ -9,7 +9,7 @@ services:
 
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=DragTeamDataBase;User Id=sa;Password=DragTeam@2026;TrustServerCertificate=True;"
+      ConnectionStrings__DefaultConnection1: "Server=tcp:dragteamserver.database.windows.net,1433;Initial Catalog=DragTeamDB;Persist Security Info=False;User ID=ScarlettDragTeam;Password=Chanel26;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
     depends_on:
       - sqlserver
 

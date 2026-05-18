@@ -12,6 +12,6 @@ namespace DragTeamAPI.Entities
         public string? Nickname { get; set; }
         [Required]
         public Guid TeamId { get; set; }
-        public Team Team { get; set; }
+        public Team? Team { get; set; }
     }
 }
