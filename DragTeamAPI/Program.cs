@@ -12,13 +12,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection1");
+var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
 
 Console.WriteLine(connectionString);
 
 // Database configuration
 builder.Services.AddDbContext<DragTeamDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection1")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
