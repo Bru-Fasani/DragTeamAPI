@@ -124,22 +124,24 @@ namespace DragTeamAPI.Services
         {
             return new TeamResponseDTO
             {
-                Id = Guid.Empty, 
+                Id = team.Id, 
                 Name = team.Name,
+                City = team.City,
                 Mechanics = team.Mechanics.Select(m => new MechanicResponseDTO
                 {
-                    Id = Guid.Empty, 
+                    Id = m.Id, 
                     Name = m.Name,
                     Specialty = m.Specialty,
                 }).ToList(),
                 Drivers = team.Drivers.Select(d => new DriverResponseDTO
                 {
-                    Id = Guid.Empty, 
+                    Id = d.Id, 
                     Name = d.Name,
+                    Nickname = d.Nickname
                 }).ToList(),
                 Cars = team.Cars.Select(c => new CarResponseDTO
                 {
-                    Id = Guid.Empty, 
+                    Id = c.Id, 
                     Name = c.Name,
                     Model = c.Model,
                     Engine = c.Engine,
