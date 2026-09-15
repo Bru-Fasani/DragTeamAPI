@@ -5,26 +5,30 @@ services:
       dockerfile: DragTeamAPI/Dockerfile
 
     ports:
-      - "8080:8080"
+      - "8081:8080"
 
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      ConnectionStrings__DefaultConnection1: "Server=tcp:dragteamserver.database.windows.net,1433;Initial Catalog=DragTeamDB;Persist Security Info=False;User ID=ScarlettDragTeam;Password=Chanel26;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+      ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__PostgresConnection: ${POSTGRES_CONNECTION}
+
     depends_on:
-      - sqlserver
+      - postgres
 
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-
-    environment:
-      ACCEPT_EULA: "Y"
-      SA_PASSWORD: "DragTeam@2026"
+  postgres:
+    image: postgres:16
 
     ports:
-      - "1433:1433"
+      - "5433:5432"
+  
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
 
     volumes:
-      - sqlserver_data:/var/opt/mssql
+      - postgres_data:/var/lib/postgresql/data
 
 volumes:
-  sqlserver_data:
+  postgres_data:
