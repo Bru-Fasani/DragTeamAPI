@@ -1,4 +1,4 @@
-<div align="center">🏁 DragTeamAPI
+<div align="center"> <h1>🏁 DragTeamAPI </h1> 
 
 REST API para gerenciamento de equipes de Drag Racing
 
@@ -443,11 +443,9 @@ Algumas melhorias planejadas para o projeto:
 
 ---
 
-👩‍💻 Autora
+## 👩‍💻 Autora
 
-<div align="center">Bruna Fasani
-
-Desenvolvedora Backend em formação, com foco em C#, .NET e desenvolvimento de APIs.
+<div align="center">Bruna Fasani - FullStack .NET Developer 👩‍💻
 
 <br><a href="https://github.com/Bru-Fasani">
   <img src="https://img.shields.io/badge/GitHub-Bru--Fasani-181717?style=for-the-badge&logo=github" />
